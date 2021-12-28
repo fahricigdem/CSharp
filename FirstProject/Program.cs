@@ -20,6 +20,33 @@ namespace FirstProject
             Console.WriteLine(account2.Balance);
 
 
+            Console.WriteLine(account2.GetAccountHistory());
+
+            // Test that the initial balances must be positive.
+            BankAccount invalidAccount;
+            try
+            {
+                invalidAccount = new BankAccount("invalid", -55);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("Exception caught creating account with negative balance");
+                Console.WriteLine(e.ToString());
+                return;
+            }
+
+
+            // Test for a negative balance.
+            try
+            {
+                account2.MakeWithdrawal(75000, DateTime.Now, "Attempt to overdraw");
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine("Exception caught trying to overdraw");
+                Console.WriteLine(e.ToString());
+            }
+
 
         }
     }
