@@ -9,6 +9,8 @@ namespace FirstProject
 
         public string Owner { get; set; }
 
+        public List<Transaction> allTransactions = new();
+
         public decimal Balance
         {
             get
@@ -19,22 +21,6 @@ namespace FirstProject
             }
             
         }
-
-        public static int accountNumberSeed = 1234567890;
-
-        private List<Transaction> allTransactions = new List<Transaction>();
-
-        public BankAccount(string name, decimal initialBalance)
-        {
-            
-            this.Number = accountNumberSeed.ToString();
-            accountNumberSeed++;
-
-            this.Owner = name;
-
-            MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
-        }
-
 
         public void MakeDeposit(decimal amount, DateTime date, string note)
         {
@@ -62,6 +48,7 @@ namespace FirstProject
 
         public string GetAccountHistory()
         {
+            
             var report = new System.Text.StringBuilder();
 
             decimal balance = 0;
@@ -72,9 +59,26 @@ namespace FirstProject
                 report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Notes}");
             }
 
+            Console.WriteLine("\nIN GetAccountHistory() report:\n" + report);
             return report.ToString();
+        }
+
+        public static int accountNumberSeed = 1234567890;
+
+        public BankAccount(string name, decimal initialBalance)
+        {
+
+            this.Number = accountNumberSeed.ToString();
+            accountNumberSeed++;
+
+            this.Owner = name;
+
+            MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
+
+
         }
 
     }
 }
- 
+
+
