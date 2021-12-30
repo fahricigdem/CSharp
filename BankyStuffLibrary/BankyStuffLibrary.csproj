@@ -1,14 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BankyStuffLibrary\BankyStuffLibrary.csproj" />
+    <None Remove="Humanizer.Core" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Humanizer.Core" />
+    <PackageReference Include="Humanizer.Core" Version="2.13.14" />
   </ItemGroup>
 </Project>

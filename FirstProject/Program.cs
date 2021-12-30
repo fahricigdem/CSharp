@@ -1,5 +1,8 @@
 ﻿using System;
-namespace FirstProject
+using BankyStuffLibrary;
+
+
+namespace MyBank
 {
     class Program
     {        
@@ -9,9 +12,8 @@ namespace FirstProject
             //Console.WriteLine($"Account {account1.Number} was created for {account1.Owner} with {account1.Balance}.");
 
 
-
             BankAccount account2  = new("Aysenur", 3000);
-
+           
             Console.WriteLine("BALANCE: " + account2.Balance);
             
 
@@ -19,7 +21,7 @@ namespace FirstProject
             account2.MakeDeposit(100, DateTime.Now, "deposit1");
             account2.MakeDeposit(100, DateTime.Now, "deposit2");
             account2.MakeDeposit(100, DateTime.Now, "deposit3");
-            account2.MakeWithdrawal(200, DateTime.Now, "withdrawal1");
+            account2.MakeWithdrawal(10, DateTime.Now, "withdrawal1");
             account2.MakeDeposit(100, DateTime.Now, "deposit4");
             account2.MakeDeposit(100, DateTime.Now, "deposit5");
             account2.MakeDeposit(100, DateTime.Now, "deposit6");
@@ -31,6 +33,7 @@ namespace FirstProject
             } catch (ArgumentOutOfRangeException e)
             {
                 Console.WriteLine("\n opps... Deposit cannot be made.");
+                Console.WriteLine(e.ToString());
             }
 
 

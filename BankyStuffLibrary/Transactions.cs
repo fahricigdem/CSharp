@@ -1,10 +1,17 @@
 ﻿using System;
+using Humanizer;
 
-namespace FirstProject
+namespace BankyStuffLibrary
 {
     public class Transaction
     {
         public decimal Amount { get; }
+        public string AmountForHumans {
+            get
+            {
+                return ((int)Amount).ToWords();
+            }
+        }
         public DateTime Date { get; }
         public string Notes { get; }
 

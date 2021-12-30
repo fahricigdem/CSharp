@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FirstProject
+namespace BankyStuffLibrary
 {
     public class BankAccount
     {
-        public string Number { get;  }
+        public string Number { get; }
 
         public string Owner { get; set; }
 
@@ -52,11 +52,11 @@ namespace FirstProject
             var report = new System.Text.StringBuilder();
 
             decimal balance = 0;
-            report.AppendLine("Date\t\tAmount\tBalance\tNote");
+            report.AppendLine("Date\t\tAmount\t\t\tBalance\tNote");
             foreach (var item in allTransactions)
             {
                 balance += item.Amount;
-                report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Notes}");
+                report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount} - {item.AmountForHumans} \t{balance}\t{item.Notes}");
             }
 
             Console.WriteLine("\nIN GetAccountHistory() report:\n" + report);
